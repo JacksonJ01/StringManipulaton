@@ -1,7 +1,6 @@
 # Jackson J.
 # 2/5/20
 # This the the manipulation class for strings
-import re
 
 
 class Strings:
@@ -11,45 +10,47 @@ class Strings:
 
 
 def length(self):
-    return "\nThe length of this string is " + str(len(self.str)) + " units long."
+    return f"\nThe length of this string is " + str(len(self.str)) + " units long."
 
 
 def first_letter(self):
-    return "\nThe first letter of the string is " + self.str[:1]
+    return "\nThe first letter of this strings is: " + self.str[:1] + "."
 
 
 def last_name(self):
-    return "\nThe last letter of the string is " + self.str[-1]
+    return "\nThe last letter of this string is: " + self.str[-1] + "."
 
 
 def del_third_char(self):
-    return "\nOkay, now let's delete the third character:" \
-           "\n" + self.str[:2] + self.str[3:]
+    return "\nOkay, now let's delete the third character in " + self.str + ":" \
+           "\n" + self.str[:2] + self.str[3:] + "."
 
 
 def upper(self):
-    return f"\n{self.str}".upper()
+    return "\nLook at this!" \
+           f"\n{self.str}".upper() + \
+           "\nCaps lock.".upper()
 
 
 def title(self):
-    return f"\n{self.str}".title()
+    return "\nAnd this too!" \
+           f"\n{self.str}".title() + \
+           "\nthis on is called title case".title()
 
 
 def contents_check(self):
-    return "Let's check if there are any characters other than letters",\
-           bool(re.match("abcdefghijklmnopqrstuvwxyz", self.str))
+    allowed = "abcdefghijklmnopqrstuvwxyz "
+    return set(self.str).issubset(allowed)
 
 
-def split(self):
-    return f"\n{self.str}".split()
+def splitting(self):
+    data = self.str.split(", ")
+    for commas in data:
+        print(commas)
+    return
 
 
 def choice(self):
-    return "" + self.str
-
-
-Words = Strings("Strings, Sounds")
-
-print(split(Words))
-
-print(choice(Words))
+    return "\nI will add something special to your string" \
+           f"\n{self.str}".__add__(f"\n\nThanks for playing with me. I had a lot of fun"
+                                   f"See you around")
